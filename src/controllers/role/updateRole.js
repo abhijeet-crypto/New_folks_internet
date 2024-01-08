@@ -1,5 +1,5 @@
-const uuid = require("uuid");
 const roleModel = require('../../models/roleModel');
+const {Snowflake }=require("@theinternetfolks/snowflake");
 
 const updateRole = async(req, res) => {
     const name = req.body.name;
@@ -10,7 +10,7 @@ const updateRole = async(req, res) => {
       // const dateString = currentDate.toISOString();
       // const snowflake = new Snowflake();
       // const id = Snowflake.generate;
-      const id = uuid.v4();
+      const id = Snowflake.generate();
       let new_role = {
         'id': id,
         'name': name,

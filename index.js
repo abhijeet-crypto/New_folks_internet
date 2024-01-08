@@ -9,7 +9,6 @@ const ejs =require('ejs');
 const cors=require('cors');
 const sha256= require('sha256');
 const jwt = require('jsonwebtoken');
-const uuid =require('uuid');
 const mongoose=require('mongoose');
 const router = express.Router();
 const routes = require('./src/routes');

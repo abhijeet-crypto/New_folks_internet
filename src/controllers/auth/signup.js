@@ -1,9 +1,8 @@
-const uuid = require('uuid');
 const jwt = require('jsonwebtoken');
 const sha256 = require('sha256');
 const userModel = require('../../models/userModel.js');
 const secretKey = process.env.secretKey;
-
+const {Snowflake }=require("@theinternetfolks/snowflake");
 const signUp = async(req,res)=>{
     const name = req.body.name;
     const email = req.body.email;
@@ -14,7 +13,8 @@ const signUp = async(req,res)=>{
     else if (email.length < 1) { res.send("email is required."); }
     else if (password.length < 6) { res.send("password shoud contain min 6 characters"); }
     else {
-        const id = uuid.v4();
+        
+        const id = Snowflake.generate();
         const new_user = new userModel({
         'id': id,
         'name': name,

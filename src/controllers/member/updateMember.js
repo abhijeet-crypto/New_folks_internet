@@ -1,8 +1,8 @@
 const jwt = require('jsonwebtoken');
-const uuid = require('uuid');
 const communityModel = require('../../models/communityModel');
 const memberModel = require('../../models/memberModel');
 const secretKey = process.env.secretKey;
+const {Snowflake }=require("@theinternetfolks/snowflake");
 
 const updateMember = async(req, res) => {
     const authHeader = req.headers.authorization;
@@ -15,7 +15,7 @@ const updateMember = async(req, res) => {
         res.send("You have not access.");
       } else {
         const new_member = new memberModel({
-          'id': uuid.v4(),
+          'id': Snowflake.generate(),
           'community': community,
           'user': user,
           'role': role,

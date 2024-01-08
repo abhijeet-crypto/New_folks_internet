@@ -1,6 +1,6 @@
-const uuid = require('uuid');
 const jwt = require('jsonwebtoken');
 const secretKey = process.env.secretKey;
+const {Snowflake }=require("@theinternetfolks/snowflake");
 
 const communityModel = require('../../models/communityModel');
 
@@ -15,11 +15,11 @@ const changeCommunityData = async(req, res) => {
         if (name.length < 2) {
           res.send("name shoud contain min 2 characters");
         } else {
-          const id = uuid.v4();
+          const id = Snowflake.generate();
           const new_community = new communityModel({
             "id": id,
             "name": name,
-            "slug": name + uuid.v4(),
+            "slug": name + Snowflake.generate(),
             "owner": tokenData,
             "created_at": new Date(),
             "updated_at": new Date(),
