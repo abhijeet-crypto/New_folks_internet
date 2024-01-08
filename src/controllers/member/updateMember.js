@@ -2,6 +2,7 @@ const jwt = require('jsonwebtoken');
 const uuid = require('uuid');
 const communityModel = require('../../models/communityModel');
 const memberModel = require('../../models/memberModel');
+const secretKey = process.env.secretKey;
 
 const updateMember = async(req, res) => {
     const authHeader = req.headers.authorization;

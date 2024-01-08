@@ -2,7 +2,7 @@ const uuid = require('uuid');
 const jwt = require('jsonwebtoken');
 const sha256 = require('sha256');
 const userModel = require('../../models/userModel.js');
-const secretKey = "6$3eae566878f32c8faf05a80#";
+const secretKey = process.env.secretKey;
 
 const signUp = async(req,res)=>{
     const name = req.body.name;

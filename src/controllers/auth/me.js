@@ -1,10 +1,11 @@
 const userModel = require('../../models/userModel');
 const jwt = require('jsonwebtoken');
 
+
 const me = async(req, res) => {
     const authHeader = req.headers.authorization;
     const bearer_token = authHeader && authHeader.split(' ')[1];
-    jwt.verify(bearer_token, secretKey, (err, tokenData) => {
+    jwt.verify(bearer_token, process.env.secretKey, (err, tokenData) => {
       if (err) {
         res.send("You have not access.");
       } else {

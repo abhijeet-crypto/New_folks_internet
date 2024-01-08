@@ -1,7 +1,7 @@
 const sha256 = require("sha256");
 const jwt = require("jsonwebtoken");
 const userModel = require('../../models/userModel');
-const secretKey = "6$3eae566878f32c8faf05a80#";
+const secretKey = process.env.secretKey;
 
 const signIn = async(req,res)=>{
     const email = req.body.email;

@@ -1,5 +1,6 @@
 const uuid = require('uuid');
 const jwt = require('jsonwebtoken');
+const secretKey = process.env.secretKey;
 
 const communityModel = require('../../models/communityModel');
 

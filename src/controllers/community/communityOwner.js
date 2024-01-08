@@ -1,5 +1,6 @@
 const jwt = require('jsonwebtoken');
 const communityModel = require('../../models/communityModel');
+const secretKey = process.env.secretKey;
 
 const communityOwner = async (req, res) => {
     const authHeader = req.headers.authorization;

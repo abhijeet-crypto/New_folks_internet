@@ -1,6 +1,7 @@
 const jwt = require('jsonwebtoken');
 const memberModel = require('../../models/memberModel');
 const communityModel = require('../../models/communityModel');
+const secretKey = process.env.secretKey;
 
 const deleteMember = async(req, res) => {
     const memberId = req.params.id;
